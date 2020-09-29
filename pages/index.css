@@ -1,0 +1,45 @@
+@import '../vendor/normalize.css';
+@import '../fonts/fonts.css';
+@import '../blocks/page/page.css';
+@import '../blocks/body/body.css';
+
+/*header*/
+@import '../blocks/header/header.css';
+@import '../blocks/logo/logo.css';
+@import '../blocks/line/line.css';
+
+
+/*main*/
+@import '../blocks/content/content.css';
+
+/*profile*/
+@import '../blocks/profile/profile.css';
+@import '../blocks/avatar/avatar.css';
+@import '../blocks/profile-info/profile-info.css';
+@import '../blocks/profile-title/profile-title.css';
+@import '../blocks/profile-subtitle/profile-subtitle.css';
+@import '../blocks/edit-button/edit-button.css';
+@import '../blocks/add-button/add-button.css';
+@import '../blocks/name/name.css';
+
+
+
+
+/*footer*/
+
+/*
+@media screen and (max-width: 1280px) {
+    
+}
+
+@media screen and (max-width: 1024px) {
+    
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+@media screen and (max-width: 425px) {
+    
+}
+border: 1px solid red;*/
