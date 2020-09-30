@@ -1,8 +1,15 @@
 .edit-button {
-    border: 1px solid #FFFFFF;
-    width: 10px;
-    height: 10px;
-    padding: 6px;
-    margin-top: 0px;
-    align-self: center;
+    
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
+
+.edit-button:hover {
+    opacity: .6;
+    transition: .2s linear;
+    
+
+}
+

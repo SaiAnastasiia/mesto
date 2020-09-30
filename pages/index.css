@@ -21,6 +21,7 @@
 @import '../blocks/profile-subtitle/profile-subtitle.css';
 @import '../blocks/edit-button/edit-button.css';
 @import '../blocks/add-button/add-button.css';
+@import '../blocks/edit-icon/edit-icon.css';
 @import '../blocks/first-row/first-row.css';
 
 /*cards*/
@@ -34,6 +35,15 @@
 
 /*footer*/
 @import '../blocks/footer/footer.css';
+
+
+
+
+@import '../blocks/popup/popup.css';
+@import '../blocks/popup/__container/popup__container.css';
+@import '../blocks/popup/__close-image/popup__close-image.css';
+@import '../blocks/popup/__title/popup__title.css';
+@import '../blocks/popup/_is-opened/popup_is-opened.css';
 
 /*
 @media screen and (max-width: 1280px) {
