@@ -5,4 +5,20 @@ font-style: normal;
 font-weight: normal;
 font-size: 18px;
 line-height: 22px;
+
+
+}
+
+
+
+@media screen and (max-width: 720px) {
+    .profile-subtitle {
+        
+        text-align: center;
+
+        
+        
+
+    }
+    
 }

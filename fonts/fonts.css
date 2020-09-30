@@ -1,2 +1,51 @@
-font-weight: 500;
-font-weight: normal;
+@font-face {
+    font-family: 'Inter';
+       src: 
+      url('Inter/Inter-Medium.woff2') format('woff2'),
+      url('Inter/Inter-Medium.woff') format('woff');
+      font-weight: 500;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+       src: 
+      url('Inter/Inter-Regular.woff2') format('woff2'),
+      url('Inter/Inter-Regular.woff') format('woff');
+      font-weight: 400;
+  }
+
+  @font-face {
+    font-family: 'Inter';
+       src: 
+      url('Inter/Inter-Black.woff2') format('woff2'),
+      url('Inter/Inter-Black.woff') format('woff');
+      font-weight: 900;
+  }
+
+
+
+
+
+
+
+/*
+@font-face {
+    font-family: 'Istok Web';
+       src: 
+      url('https://pictures.s3.yandex.net/fonts/istokregular.woff2') format('woff2'),
+      url('https://pictures.s3.yandex.net/fonts/istokregular.woff') format('woff'),
+      url('https://pictures.s3.yandex.net/fonts/istokregular.ttf') format('truetype');
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: 'Ubuntu';
+         src: 
+    url('https://pictures.s3.yandex.net/fonts/ubuntubold.woff2') format('woff2'),
+    url('https://pictures.s3.yandex.net/fonts/ubuntubold.woff') format('woff'),
+    url('https://pictures.s3.yandex.net/fonts/ubuntubold.ttf') format('truetype');
+    font-weight: bold;
+}
+font-family: 'IBM Plex Serif', serif;
+
+  */

@@ -20,3 +20,11 @@
     border-bottom: dotted 1px #9EC1D4;*/
     /*color: #545454; /* Цвет линии для IE6-7 */
 }
+
+@media screen and (max-width: 720px) {
+    .line {
+        
+        margin-bottom: 32px;
+    }
+    
+}
