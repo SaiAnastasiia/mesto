@@ -4,4 +4,4 @@
 
 Проект для изучения java script.
 
-Ссылка на проект: https://saianastasiia.github.io/russian-travel/
+Ссылка на проект: https://saianastasiia.github.io/mesto/
