@@ -9,10 +9,11 @@
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-rendering: optimizeLegibility;
-
-
-
 }
 
-
-
+@media screen and (max-width: 1000px) {
+    .page {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+}

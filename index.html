@@ -12,31 +12,20 @@
   <div class="page">
     <header class="header">
       <img class="logo" src="images/logo.png">
-      <div class="line"></div>
+      <div class="header__line"></div>
     </header>
     <main class="content">
       <section class="profile">
-        <div class="profile-main">
-
-
-          <img class="avatar" src="images/image.jpg">
-          <ul class="profile-info">
-            <div class="first-row">
-              <h1 class="profile-title">Жак-Ив Кусто</h1>
-              <button class="edit-button"><img class="edit-icon" src="images/edit button.png"></button>
-            </div>
-
-
-            <p class="profile-subtitle">Исследователь океана</p>
+        <div class="profile__main">
+          <img class="profile__avatar" src="images/image.jpg">
+          <ul class="profile__info">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <p class="profile__proffesion">Исследователь океана</p>
+            <button class="edit-button"><img class="edit-button__icon" src="images/edit button.png"></button>
           </ul>
         </div>
         <img class="add-button" src="images/add button.png">
-
-
-
-
       </section>
-
       <section class="cards">
         <div class="element">
           <img class="element__image" src="images/karachaevsk.jpg">
@@ -45,16 +34,8 @@
             <button class="element__like">
               <img src="images/like.png">
             </button>
-
-
           </div>
-
-
-
-
-
         </div>
-
         <div class="element">
           <img class="element__image" src="images/elbrus.jpg">
           <div class="element__content">
@@ -63,12 +44,7 @@
               <img src="images/like.png">
             </button>
           </div>
-
-
-
-
         </div>
-
         <div class="element">
           <img class="element__image" src="images/dombai.jpg">
           <div class="element__content">
@@ -77,11 +53,7 @@
               <img src="images/like.png">
             </button>
           </div>
-
-
-
         </div>
-
         <div class="element">
           <img class="element__image" src="images/elbrus.jpg">
           <div class="element__content">
@@ -89,12 +61,8 @@
             <button class="element__like">
               <img src="images/like.png">
             </button>
-
           </div>
-
-
         </div>
-
         <div class="element">
           <img class="element__image" src="images/dombai.jpg">
           <div class="element__content">
@@ -102,12 +70,8 @@
             <button class="element__like">
               <img src="images/like.png">
             </button>
-
           </div>
-
-
         </div>
-
         <div class="element">
           <img class="element__image" src="images/karachaevsk.jpg">
           <div class="element__content">
@@ -115,53 +79,28 @@
             <button class="element__like">
               <img src="images/like.png">
             </button>
-
-
           </div>
-
         </div>
-
-
-
-
-
       </section>
-
-
-
-
-
     </main>
     <section class="popup">
       <div class="popup__container">
         <img src="images/Close Icon.png" alt="Иконка закрытия" class="popup__close-image">
         <div class="popup__content">
           <h2 class="popup__title"> Редактировать профиль</h2>
-
-
-
-
-
-
+          <form class="popup__form">
+            <input type="text" class="popup__form-name" value="Жак-Ив Кусто">
+            <input type="text" class="popup__form-profession" value="Исследователь океана">
+            <button type="submit" class="popup__input-buttom">Сохранить</button> <!-- Отправит форму -->
+          </form>
         </div>
-
-
       </div>
     </section>
-
-
-
     <footer class="footer">
       <p class="footer__place">&copy; 2020 Mesto Russia</p>
     </footer>
-
-
-
-
-
   </div>
   <script src="./scripts/index.js"></script>
-
 </body>
 
 </html>

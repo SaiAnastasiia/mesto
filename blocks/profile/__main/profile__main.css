@@ -1,18 +1,11 @@
-.profile-main {
-    display: flex;  
+.profile__main {
+    display: flex;
     align-items: center;
 }
 
-
-
-
 @media screen and (max-width: 720px) {
-    .profile-main {
-        
+    .profile__main {
         flex-direction: column;
-        
-        
-
+        margin-bottom: 36px;
     }
-    
 }
