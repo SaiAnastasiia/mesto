@@ -8,10 +8,6 @@
 @import '../blocks/logo/logo.css';
 @import '../blocks/header/__line/header__line.css';
 
-
-/*main*/
-@import '../blocks/content/content.css';
-
 /*profile*/
 @import '../blocks/profile/profile.css';
 @import '../blocks/profile/__main/profile__main.css';
@@ -21,7 +17,7 @@
 @import '../blocks/profile/__profession/profile__profession.css';
 @import '../blocks/edit-button/edit-button.css';
 @import '../blocks/add-button/add-button.css';
-@import '../blocks/edit-button/__icon/edit-button__icon.css';
+
 
 
 /*cards*/
@@ -42,6 +38,7 @@
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/__container/popup__container.css';
 @import '../blocks/popup/__close-image/popup__close-image.css';
+@import '../blocks/popup/__content/popup__content.css';
 @import '../blocks/popup/__title/popup__title.css';
 @import '../blocks/popup/_is-opened/popup_is-opened.css';
 @import '../blocks/popup/__form/popup__form.css';

@@ -24,8 +24,8 @@ function formSubmitHandler (evt) {
                         // О том, как это делать, расскажем позже.
 
     // Находим поля формы в DOM
-    let nameInput = document.querySelector('.popup__form-name');// Воспользуйтесь инструментом .querySelector()
-    let jobInput = document.querySelector('.popup__form-profession');// Воспользуйтесь инструментом .querySelector()
+    let nameInput = popup.querySelector('.popup__form-name');// Воспользуйтесь инструментом .querySelector()
+    let jobInput = popup.querySelector('.popup__form-profession');// Воспользуйтесь инструментом .querySelector()
     
     // Получите значение полей из свойства value
 
@@ -34,8 +34,9 @@ function formSubmitHandler (evt) {
     let job = jobInput.value; 
 
     // Выберите элементы, куда должны быть вставлены значения полей
-    let changeNameInput= document.querySelector('.profile__name');
-    let changeJobInput = document.querySelector('.profile__proffesion');
+    let profile = document.querySelector('.profile');
+    let changeNameInput = profile.querySelector('.profile__name');
+    let changeJobInput = profile.querySelector('.profile__profession');
 
     // Вставьте новые значения с помощью textContent
     changeNameInput.textContent = name;
@@ -46,7 +47,7 @@ changeJobInput.textContent = job;
 // он будет следить за событием “submit” - «отправка»
 formElement.addEventListener('click', formSubmitHandler); 
 
-let buttonSavePopup = document.querySelector('.popup__input-buttom');
+let buttonSavePopup = popup.querySelector('.popup__input-buttom');
 buttonSavePopup.addEventListener("click", popupToggle);
 
 

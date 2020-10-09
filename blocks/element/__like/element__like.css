@@ -1,6 +1,13 @@
 .element__like {
+    background: url('../../../images/like.svg'), transparent;
     border: none;
     outline: none;
-    background: none;
     padding: 0;
+    width: 21px;
+    height: 18px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    
 }

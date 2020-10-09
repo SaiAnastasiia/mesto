@@ -4,10 +4,19 @@
     background: #000000;
     border-radius: 2px;
     color: #FFFFFF;
-    font-family: Inter;
+    font-family: Inter, Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+}
+
+@media screen and (max-width: 560px) {
+    .popup__input-buttom {
+        font-size: 14px;
+        line-height: 17px;
+        height: 46px;
+
+    }
 }
