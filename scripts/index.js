@@ -1,5 +1,3 @@
-console.log("Hello world");
-
 let buttonOpenPopup = document.querySelector('.edit-button');
 let buttonClosePopup = document.querySelector('.popup__close-image');
 let popup = document.querySelector('.popup');
@@ -10,8 +8,6 @@ let popupToggle = () => {
 
 buttonOpenPopup.addEventListener("click", popupToggle);
 buttonClosePopup.addEventListener("click", popupToggle);
-
-console.log("buttonOpenPopup");
 
 // Находим форму в DOM
 let formElement = document.querySelector('.popup__input-buttom');
