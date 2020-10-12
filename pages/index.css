@@ -6,7 +6,6 @@
 /*header*/
 @import '../blocks/header/header.css';
 @import '../blocks/logo/logo.css';
-@import '../blocks/header/__line/header__line.css';
 
 /*profile*/
 @import '../blocks/profile/profile.css';

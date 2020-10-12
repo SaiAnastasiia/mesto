@@ -7,3 +7,10 @@
     color: #545454;
     margin-bottom: 60px;
 }
+
+@media screen and (max-width: 1000px) {
+    .footer {
+        padding-left: 19px;
+        padding-right: 19px;
+    }
+}
