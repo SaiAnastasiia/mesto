@@ -10,6 +10,9 @@
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    border: none;
+    box-shadow: none;
+    outline: none;
 }
 
 @media screen and (max-width: 560px) {
@@ -19,4 +22,9 @@
         height: 46px;
 
     }
+}
+
+.popup__input-buttom:hover {
+    opacity: .8;
+    transition: .2s linear;
 }
