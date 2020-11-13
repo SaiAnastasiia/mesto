@@ -41,8 +41,13 @@
 @import '../blocks/popup/__title/popup__title.css';
 @import '../blocks/popup/_is-opened/popup_is-opened.css';
 @import '../blocks/popup/__form/popup__form.css';
-@import '../blocks/popup/__form-name/popup__form-name.css';
-@import '../blocks/popup/__form-profession/popup__form-profession.css';
+@import '../blocks/popup/__form-first-row/popup__form-first-row.css';
+@import '../blocks/popup/__form-second-row/popup__form-second-row.css';
 @import '../blocks/popup/__input-buttom/popup__input-buttom.css';
 
 
+/*второй попап*/
+@import '../blocks/popup/_type/popup_type_add.css';
+@import '../blocks/popup/_type/popup__content_add.css';
+@import '../blocks/popup/_type/popup__close.css';
+@import '../blocks/popup/_type/popup_is-opened-add.css';
