@@ -9,6 +9,9 @@
     margin-bottom: auto;
     background-size: contain;
     background-repeat: no-repeat;
+    cursor: pointer;
+    
+
     
 }
 
@@ -18,13 +21,7 @@
 
 }
 
-/* 
-.element__like:active {
-    background: url('../../../images/like-active.svg'), transparent;
 
-
-}
- */
 
 
 

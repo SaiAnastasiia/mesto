@@ -1,15 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
 //открытие и закрытие
 const popupAdd = document.querySelector('.popup_type_add');
 const popupEdit = document.querySelector('.popup');
@@ -61,40 +50,35 @@ popupEdit.addEventListener('mousedown', popupEditClickHandler);
 
 // отправка первый попап
 
-// Находим форму в DOM
 let formEditElement = document.querySelector('.popup__input-buttom_type_edit');
 
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
+
 function formEditSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                        // Так мы можем определить свою логику отправки.
-                        // О том, как это делать, расскажем позже.
+    evt.preventDefault(); 
                       
     // Находим поля формы в DOM
-    let nameInput = popupEdit.querySelector('.popup__form-name');// Воспользуйтесь инструментом .querySelector()
-    let jobInput = popupEdit.querySelector('.popup__form-profession');// Воспользуйтесь инструментом .querySelector()
+    let nameInput = popupEdit.querySelector('.popup__form-name');
+    let jobInput = popupEdit.querySelector('.popup__form-profession');
     
-    // Получите значение полей из свойства value
+   
 
 
     let name = nameInput.value;
     let job = jobInput.value; 
 
-    // Выберите элементы, куда должны быть вставлены значения полей
+    
     let profile = document.querySelector('.profile');
     let changeNameInput = profile.querySelector('.profile__name');
     let changeJobInput = profile.querySelector('.profile__profession');
 
-    // Вставьте новые значения с помощью textContent
+    
     changeNameInput.textContent = name;
     changeJobInput.textContent = job;
 }
 
 
 
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
+
 formEditElement.addEventListener('click', formEditSubmitHandler); 
 
 const buttonSaveEditPopup = popupEdit.querySelector('.popup__input-buttom_type_edit');
@@ -164,65 +148,4 @@ const inputButton = document.querySelector('.popup__input-buttom_type_add');
 inputButton.addEventListener('click', closeAddPopup);
 
 initialCards.forEach(addCard);
-
-
-/* const inputButton = document.querySelector('.popup__input-buttom_type_add');
-const inputPlace = document.querySelector('.popup__form-place');
-const inputLink = document.querySelector('.popup__form-image');
- */
-/*
-const inputButton = document.querySelector('.popup__input-buttom_type_add');
-const inputPlace = document.querySelector('.popup__form-place');
-const inputLink = document.querySelector('.popup__form-image');
-
-
-const getItems = (data) => {
-    const card = template.content.cloneNode(true);
-    card.querySelector('.element__title').innerText = data.name;
-    card.querySelector('.element__image').src = data.link;
-    return card;
-};
-
-const renderCards = () => {
-    const items = initialCards.map(element => getItems(element));
-    cards.prepend(...items);
-};
-
-
-
-renderCards();
-
-
-function FormAddSubmitHandler (evt) {
-    evt.preventDefault(); 
-    const item = getItems( {
-        name: inputPlace.value,
-        link: inputLink.value
-    });
-
-    cards.prepend(item);
-        inputPlace.value = '';
-        inputLink.value = '';
-}
-
-inputButton.addEventListener('click', FormAddSubmitHandler); 
-inputButton.addEventListener('click', closeAddPopup);
- */
-
-
-/* const elementLike = document.querySelectorAll('.element__like');
-
-function elementLikeActive(evt) {
-    const eventTarget = evt.target;
-    eventTarget.classList.toggle('.element__like_type_active');
-}
-
-elementLike.addEventListener('click', elementLikeActive); */
-
-
-
-
-
-
-
 

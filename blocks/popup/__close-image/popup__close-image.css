@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     background: url('../../../images/close-icon.svg'), transparent;
     background-position: center;
+    cursor: pointer;
 }
     
 @media screen and (max-width: 560px) {
