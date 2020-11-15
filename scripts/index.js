@@ -1,90 +1,11 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    }
-]; 
-
-const list = document.querySelector('.cards');
-initialCards.forEach(element => {
-    const templateList = `
-        <div class="element">
-            <img class="element__image" src=${element.link}>
-            <div class="element__content">
-                <h2 class="element__title">${element.name}</h2>
-                <button class="element__like" type="button"></button>
-            </div>
-        </div>
-    `
-
-    list.insertAdjacentHTML('afterbegin', templateList);
-}); 
-
-
-
-/* в JS элемент внутри тега можно получить методом querySelector:
-const userTemplate = document.querySelector('#user');  
-Чтобы получить содержимое template, нужно обратиться к его свойству content:
-const userTemplate = document.querySelector('#user').content; */
-/* const cardTemplate = document.querySelector('template').content; */
-
-
-/* Теперь этот элемент можно клонировать, наполнить содержимым и, где понадобится, вставить в DOM.
-const userTemplate = document.querySelector('#user').content;
-const usersOnline = document.querySelector('.users-online'); */
-/* const cards = document.querySelector('.cards'); */
-
-/* клонируем содержимое тега template 
-const userElement = userTemplate.cloneNode(true); */
-/* const element = cardTemplate.cloneNode(true);
- */
-// наполняем содержимым
-/* element.querySelector('.place__image').src = 'element.link';
-element.querySelector('.place__title').textContent = 'element.name'; */
-
-// отображаем на странице
-//usersOnline.append(cardElement); 
-/* cards.append(element);  */
 
 
 
 
 
-/* const list = document.querySelector('.cards');
-const addList = initialCards.reduce () => {
-    const items = initialCards.map(element => {
-        return `<div class="element">
-                    <img class="element__image" src=${element.link}>
-                    <div class="element__content">
-                       <h2 class="element__title">${element.name}</h2>
-                       <button class="element__like" type="button"></button>
-                   </div>
-                </div>`;
-    }).join('');
-    list.insertAdjacentHTML('afterbegin', items);
-};
-renderList(); 
- */
+
+
+
 
 
 
@@ -182,28 +103,122 @@ buttonSaveEditPopup.addEventListener("click", closeEditPopup);
 
 
 
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+    }
+]; 
 
-// отправка второй попап
 
-/* let formAddElement = document.querySelector('.popup__input-buttom_type_add');
+const cards = document.querySelector('.cards');
 
-function formAddSubmitHandler (evt) {
-    evt.preventDefault(); 
-    let placeInput = popupAdd.querySelector('.popup__form-place');
-    let imageInput = popupAdd.querySelector('.popup__form-image');
+function addCard(element) {
+    const templateCard = document.querySelector ('.template').content.cloneNode(true);
+
+    templateCard.querySelector('.element__title').textContent = element.name;
+    templateCard.querySelector('.element__image').src = element.link;
     
-    let place = placeInput.value;
-    let image = imageInput.value; 
 
-    let element = document.querySelector('.element');
-    let changePlaceInput = element.querySelector('.element__title');
-    let changeImageInput = element.querySelector('.element__image');
- 
-    changePlaceInput.textContent = place;
-    changeImageInput.textContent = image;
+   cards.append(templateCard);
+
+
 }
 
-formAddElement.addEventListener('click', formAddSubmitHandler); 
+initialCards.forEach(addCard);
 
-const buttonSaveAddPopup = popupAdd.querySelector('.popup__input-buttom_type_add');
-buttonSaveAddPopup.addEventListener("click", closeAddPopup);  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* querySelector ('.template');
+
+
+const inputButton = document.querySelector('.popup__input-buttom_type_add');
+const inputPlace = document.querySelector('.popup__form-place');
+const inputLink = document.querySelector('.popup__form-image');
+
+
+const getItems = (data) => {
+    const card = template.content.cloneNode(true);
+    card.querySelector('.element__title').innerText = data.name;
+    card.querySelector('.element__image').src = data.link;
+    return card;
+};
+
+const renderCards = () => {
+    const items = initialCards.map(element => getItems(element));
+    cards.prepend(...items);
+};
+
+
+
+renderCards();
+
+
+function FormAddSubmitHandler (evt) {
+    evt.preventDefault(); 
+    const item = getItems( {
+        name: inputPlace.value,
+        link: inputLink.value
+    });
+
+    cards.prepend(item);
+        inputPlace.value = '';
+        inputLink.value = '';
+}
+
+inputButton.addEventListener('click', FormAddSubmitHandler); 
+inputButton.addEventListener('click', closeAddPopup);
+ */
+
+
+/* const elementLike = document.querySelectorAll('.element__like');
+
+function elementLikeActive(evt) {
+    const eventTarget = evt.target;
+    eventTarget.classList.toggle('.element__like_type_active');
+}
+
+elementLike.addEventListener('click', elementLikeActive); */
+
+
+
+
+
+
+
+

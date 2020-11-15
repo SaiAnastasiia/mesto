@@ -4,10 +4,3 @@
     object-fit: cover;
     height: 282px;
 }
-
-@media screen and (max-width: 540px) {
-    .cards {
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-rows: repeat(3, 1fr);
-    }
-}

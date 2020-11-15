@@ -12,3 +12,35 @@
     
 }
 
+.element__like:hover {
+    opacity: .6;
+    transition: .2s linear;
+
+}
+
+/* 
+.element__like:active {
+    background: url('../../../images/like-active.svg'), transparent;
+
+
+}
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
