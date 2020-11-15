@@ -124,6 +124,17 @@ function addCard(element) {
     templateCard.querySelector('.element__title').textContent = element.name;
     templateCard.querySelector('.element__image').src = element.link;
     
+    templateCard.querySelector('.element__trash').addEventListener('click', event => {
+        const cardDelete = event.target.closest('.element');
+
+        if(cardDelete) {
+            cardDelete.remove()
+        }
+
+
+    })
+
+    
 
    cards.append(templateCard);
 
@@ -148,4 +159,14 @@ const inputButton = document.querySelector('.popup__input-buttom_type_add');
 inputButton.addEventListener('click', closeAddPopup);
 
 initialCards.forEach(addCard);
+
+
+
+
+
+
+
+
+
+
 
