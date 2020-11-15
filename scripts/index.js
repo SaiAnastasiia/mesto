@@ -132,6 +132,7 @@ const initialCards = [
 
 
 const cards = document.querySelector('.cards');
+const addForm = document.querySelector('.popup__form_type_add');
 
 function addCard(element) {
     const templateCard = document.querySelector ('.template').content.cloneNode(true);
@@ -145,28 +146,31 @@ function addCard(element) {
 
 }
 
+addForm.addEventListener('submit', event => {
+    event.preventDefault();
+    
+    const inputPlace = document.querySelector('.popup__form-place');
+    const inputLink = document.querySelector('.popup__form-image');
+    
+
+    const element = addCard( {
+        name: inputPlace.value,
+        link: inputLink.value
+    });
+    
+    addForm.reset();
+});
+const inputButton = document.querySelector('.popup__input-buttom_type_add');
+inputButton.addEventListener('click', closeAddPopup);
+
 initialCards.forEach(addCard);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* querySelector ('.template');
-
-
+/* const inputButton = document.querySelector('.popup__input-buttom_type_add');
+const inputPlace = document.querySelector('.popup__form-place');
+const inputLink = document.querySelector('.popup__form-image');
+ */
+/*
 const inputButton = document.querySelector('.popup__input-buttom_type_add');
 const inputPlace = document.querySelector('.popup__form-place');
 const inputLink = document.querySelector('.popup__form-image');
