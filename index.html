@@ -26,10 +26,9 @@
         <button class="add-button" type="button"></button>
       </section>
       <section class="cards">
-      
       </section>
     </main>
-    <section class="popup">
+    <section class="popup popup_type_edit">
       <div class="popup__container">
         <button class="popup__close-image" type="button"></button>
         <div class="popup__content popup__content_type_edit">
@@ -38,15 +37,13 @@
             <input type="text" class="popup__form-first-row popup__form-name" value="Жак-Ив Кусто">
             <input type="text" class="popup__form-second-row popup__form-profession" value="Исследователь океана">
             <button type="submit" class="popup__input-buttom popup__input-buttom_type_edit">Сохранить</button>
-            <!-- Отправит форму -->
           </form>
         </div>
       </div>
     </section>
-
-    <section class="popup_type_add">
+    <section class="popup popup_type_add">
       <div class="popup__container">
-        <button class="popup__close" type="button"></button>
+        <button class="popup__close-image" type="button"></button>
         <div class="popup__content popup__content_type_add">
           <h2 class="popup__title">Новое место</h2>
           <form class=" popup__form popup__form_type_add">
@@ -57,34 +54,21 @@
         </div>
       </div>
     </section>
-
-    <section class="popup_type_image">
-      <div class="popup__container-image">
-        <button class="popup__close-popup_type_image" type="button"></button>
-        <div class="popup__content_type_image">
-          <img class="popup_type_image_photo">
-
-          <h2 class="popup__title_type_image"></h2>  
-        </div>
+    <section class="popup popup_type_image">
+      <div class="popup__place-container">
+        <button class="popup__close-image" type="button"></button>    
+        <img class="popup__place-photo">
+        <h2 class="popup__place-title"></h2>
       </div>
     </section>
-
-
-
-
     <footer class="footer">
       <p class="footer__place">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
-
-
   <template class="template">
     <div class="element">
       <button class="element__trash" type="button"></button>
       <button class="element__image-button" type="button"><img class="element__image"></button>
-
-
-
       <img class="element__image">
       <div class="element__content">
         <h2 class="element__title"></h2>
@@ -92,29 +76,7 @@
       </div>
     </div>
   </template>
-
   <script src="./scripts/index.js"></script>
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

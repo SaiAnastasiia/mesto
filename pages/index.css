@@ -50,17 +50,17 @@
 
 
 /*второй попап*/
-@import '../blocks/popup/_type/popup_type_add.css';
-@import '../blocks/popup/_type/popup__content_add.css';
-@import '../blocks/popup/_type/popup__close.css';
+
+
+
 @import '../blocks/popup/_type/popup_is-opened-add.css';
 
 
 /*третий попап*/
 @import '../blocks/popup/_type/popup_type_image.css';
 @import '../blocks/popup/_type/popup_is-opened-image.css';
-@import '../blocks/popup/_type/popup__title_type_image.css';
-@import '../blocks/popup/_type/popup_type_image_photo.css';
-@import '../blocks/popup/_type/popup__close-popup_type_image.css';
-@import '../blocks/popup/_type/popup__container-image.css';
+@import '../blocks/popup/__place-title/popup__place-title.css';
+@import '../blocks/popup/__place-photo/popup__place-photo.css';
+
+@import '../blocks/popup/__place-container/popup__place-container.css';
 
