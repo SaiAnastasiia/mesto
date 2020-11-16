@@ -118,8 +118,15 @@ const initialCards = [
 const cards = document.querySelector('.cards');
 const addForm = document.querySelector('.popup__form_type_add');
 
+
+
+
+
+
 function addCard(element) {
     const templateCard = document.querySelector ('.template').content.cloneNode(true);
+
+    
 
     templateCard.querySelector('.element__title').textContent = element.name;
     templateCard.querySelector('.element__image').src = element.link;
@@ -128,13 +135,20 @@ function addCard(element) {
         const cardDelete = event.target.closest('.element');
 
         if(cardDelete) {
-            cardDelete.remove()
+            cardDelete.remove();
         }
 
 
-    })
+    });
 
-    
+    templateCard.querySelector('.element__like').addEventListener('click', event => {
+        const elementLike = event.target;
+        if(elementLike) {
+            elementLike.classList.toggle('element__like_type_active');
+        }
+
+    });
+  
 
    cards.append(templateCard);
 
