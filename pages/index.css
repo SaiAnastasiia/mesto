@@ -22,6 +22,7 @@
 /*cards*/
 @import '../blocks/cards/cards.css';
 @import '../blocks/element/element.css';
+@import '../blocks/element/__image-button/element__image-button.css';
 @import '../blocks/element/__image/element__image.css';
 @import '../blocks/element/__trash/element__trash.css';
 @import '../blocks/element/__content/element__content.css';
@@ -53,3 +54,13 @@
 @import '../blocks/popup/_type/popup__content_add.css';
 @import '../blocks/popup/_type/popup__close.css';
 @import '../blocks/popup/_type/popup_is-opened-add.css';
+
+
+/*третий попап*/
+@import '../blocks/popup/_type/popup_type_image.css';
+@import '../blocks/popup/_type/popup_is-opened-image.css';
+@import '../blocks/popup/_type/popup__title_type_image.css';
+@import '../blocks/popup/_type/popup_type_image_photo.css';
+@import '../blocks/popup/_type/popup__close-popup_type_image.css';
+@import '../blocks/popup/_type/popup__container-image.css';
+

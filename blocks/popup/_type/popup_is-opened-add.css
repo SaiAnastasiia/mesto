@@ -1,7 +1,6 @@
 .popup_is-opened-add {
-    display: flex;
-    
-    /* visibility: visible; */
+    visibility: visible;
+    opacity: 1;
 
 
 }

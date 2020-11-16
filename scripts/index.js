@@ -3,11 +3,23 @@
 const popupAdd = document.querySelector('.popup_type_add');
 const popupEdit = document.querySelector('.popup');
 
+
 const popupAddCloseButton = document.querySelector('.popup__close');
 const popupEditCloseButton = document.querySelector('.popup__close-image');
 
+
+
+
 const addButton = document.querySelector('.add-button');
 const editButton = document.querySelector('.edit-button');
+
+
+
+
+
+
+
+
 
 
 function showAddPopup() {
@@ -23,6 +35,66 @@ function closeAddPopup() {
 function closeEditPopup() {
     popupEdit.classList.remove('popup_is-opened');
 }
+
+
+
+
+
+
+
+
+
+
+
+
+const popupTypeImage = document.querySelector('.popup_type_image');
+
+
+const popupImage = popupTypeImage.querySelector('.popup_type_image_photo');
+const popupImageTitle = popupTypeImage.querySelector('.popup__title_type_image');
+const imagePreviewCloseButton = popupTypeImage.querySelector('.popup__close-popup_type_image');
+
+function imagePreview() {
+    popupTypeImage.classList.add('popup_is-opened-image');
+};
+
+function closeImagePreview() {
+    popupTypeImage.classList.remove('popup_is-opened-image');
+};
+
+imagePreviewCloseButton.addEventListener('click', closeImagePreview);
+
+
+
+popupTypeImage.addEventListener('mousedown', function (evt) {
+    if (evt.target.classList.contains('popup_type_image')) {
+        closeImagePreview();
+    };
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 addButton.addEventListener('click', showAddPopup);
 editButton.addEventListener('click', showEditPopup);
@@ -148,6 +220,24 @@ function addCard(element) {
         }
 
     });
+
+
+
+
+    templateCard.querySelector('.element__image-button').addEventListener('click', event => {
+  
+        imagePreview();
+        popupImage.src = event.target.src;
+        popupImageTitle.textContent = element.name;
+    });
+
+    
+
+ 
+
+
+
+
   
 
    cards.append(templateCard);
