@@ -36,7 +36,7 @@
 
 
 
-
+/*попапы*/
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/__container/popup__container.css';
 @import '../blocks/popup/__close-image/popup__close-image.css';
@@ -47,13 +47,6 @@
 @import '../blocks/popup/__form-first-row/popup__form-first-row.css';
 @import '../blocks/popup/__form-second-row/popup__form-second-row.css';
 @import '../blocks/popup/__input-buttom/popup__input-buttom.css';
-
-
-/*второй попап*/
-
-
-
-@import '../blocks/popup/_type/popup_is-opened-add.css';
 
 
 /*третий попап*/
