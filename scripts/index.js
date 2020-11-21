@@ -128,19 +128,6 @@ const initialCards = [
 const cards = document.querySelector('.cards');
 const addForm = document.querySelector('.popup__form_type_add');
 
-
-
-function likeHandler(event) {
-    event.target.classList.toggle('element__like_type_active');
-}
-
-function deleteHandler(event) {
-    const cardDelete = event.target.closest('.element');
-
-    if(cardDelete) {
-        cardDelete.remove();
-    }
-}
 function addCard(element) {
 const templateCard = document.querySelector ('.template').content.cloneNode(true);
 const elementImage = templateCard.querySelector('.element__image');
