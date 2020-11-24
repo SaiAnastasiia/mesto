@@ -26,7 +26,7 @@ function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
 } 
 
-function popupClickHandler() {
+function popupClickHandler(event) {
     // Используйте один css класс для обозначения элемента модального окна
     if (event.target.classList.contains('popup')) {
         closePopup(event.target);
