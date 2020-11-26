@@ -34,11 +34,22 @@ function closePopupOverlay (event) {
     }
 }
 
+function closePopupKeydown (evt) {
+    const popupOpened = document.querySelector('.popup_is-opened');
+    if (evt.key === 'Escape') {
+        closePopup(popupOpened);
+    }
+}
+
+
+document.addEventListener('keydown', closePopupKeydown);
 
 //открытие и закрытие Add
 addButton.addEventListener('click', function() {
     openPopup(popupAdd);
+    
 });
+
 
 popupAddCloseButton.addEventListener('click', function() {
     closePopup(popupAdd);
@@ -65,6 +76,10 @@ popupImageCloseButton.addEventListener('click', function() {
 });
 
 popupImage.addEventListener('click', closePopupOverlay);
+
+
+
+
 
 
 // отправка Edit
@@ -179,3 +194,6 @@ initialCards.forEach(info => {
     const card = addCard(info);
     cards.append(card);
   });
+
+
+  document.addEventListener('keydown', closePopupKeydown);
