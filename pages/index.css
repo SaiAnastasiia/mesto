@@ -42,12 +42,12 @@
 @import '../blocks/popup/__close-image/popup__close-image.css';
 @import '../blocks/popup/__content/popup__content.css';
 @import '../blocks/popup/__title/popup__title.css';
-@import '../blocks/popup/_is-opened/popup_is-opened.css';
+
 @import '../blocks/popup/__form/popup__form.css';
 @import '../blocks/popup/__form-first-row/popup__form-first-row.css';
 @import '../blocks/popup/__form-second-row/popup__form-second-row.css';
 @import '../blocks/popup/__input-buttom/popup__input-buttom.css';
-
+@import '../blocks/popup/_is-opened/popup_is-opened.css';
 
 /*третий попап*/
 @import '../blocks/popup/_type/popup_type_image.css';
@@ -56,4 +56,9 @@
 @import '../blocks/popup/__place-photo/popup__place-photo.css';
 
 @import '../blocks/popup/__place-container/popup__place-container.css';
+
+
+@import '../blocks/error/error.css';
+@import '../blocks/popup/__input-invalid/popup__input-invalid.css';
+@import '../blocks/popup/__input-buttom/_invalid/popup__input-buttom_invalid.css';
 

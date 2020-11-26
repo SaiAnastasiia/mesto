@@ -26,12 +26,14 @@ function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
 } 
 
-function popupClickHandler(event) {
-    // Используйте один css класс для обозначения элемента модального окна
-    if (event.target.classList.contains('popup')) {
-        closePopup(event.target);
+function closePopupOverlay (event) {
+    const popupOpened = document.querySelector('.popup_is-opened');
+
+    if (event.target.classList.contains('popup_is-opened')) {    
+        closePopup(popupOpened);
     }
-} 
+}
+
 
 //открытие и закрытие Add
 addButton.addEventListener('click', function() {
@@ -42,10 +44,7 @@ popupAddCloseButton.addEventListener('click', function() {
     closePopup(popupAdd);
 });
 
-popupAdd.addEventListener('click', function() {
-    popupClickHandler(popupAdd);
-});
-
+popupAdd.addEventListener('click', closePopupOverlay);
 
 
 //открытие и закрытие Edit
@@ -57,9 +56,7 @@ popupEditCloseButton.addEventListener('click', function() {
     closePopup(popupEdit);
 });
 
-popupEdit.addEventListener('click', function() {
-    popupClickHandler(popupEdit);
-});
+popupEdit.addEventListener('click', closePopupOverlay);
 
 
 //открытие и закрытие Image
@@ -67,9 +64,7 @@ popupImageCloseButton.addEventListener('click', function() {
     closePopup(popupImage);
 });
 
-popupImage.addEventListener('click', function() {
-    popupClickHandler(popupImage);
-});
+popupImage.addEventListener('click', closePopupOverlay);
 
 
 // отправка Edit
