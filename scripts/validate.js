@@ -43,6 +43,7 @@ function enableValidation(config) {
     const forms = document.querySelectorAll(config.formSelector);
     forms.forEach((form) => {
         setEventListeners(form, config);
+        
         form.addEventListener('submit', (evt) => {
            evt.preventDefault();
         });
@@ -55,8 +56,10 @@ const validationConfig = {
     formSelector: '.popup__form',
     inputSelector:  '.popup__input',
     submitButtonSelector: '.popup__input-buttom',
-    buttonInvalidClass:'popup__input-invalid',
-    inputInvalidClass: 'popup__input-buttom_invalid',
+    buttonInvalidClass:'popup__input-buttom_invalid',
+    inputInvalidClass: 'popup__input-invalid',
+    errorMessage: '.error',
+
 };
 
 enableValidation(validationConfig);

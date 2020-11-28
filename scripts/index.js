@@ -14,13 +14,27 @@ const popupImagePhoto = popupImage.querySelector('.popup__place-photo');
 const popupImageTitle = popupImage.querySelector('.popup__place-title');
 const popupImageCloseButton = popupImage.querySelector('.popup__close-image');
 
+function deleteErrorMessage(popup) {
+    const errors = popup.querySelectorAll(validationConfig.errorMessage);
+    Array.from(errors).forEach((error) => {
+        error.textContent = " ";
+    });
+    const inputs = popup.querySelectorAll(validationConfig.inputSelector);
+    Array.from(inputs).forEach((input) => {
+        input.classList.remove(validationConfig.inputInvalidClass);
+    });
+}
+
 //функции открытия и закрытия
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
+    document.addEventListener('keydown', closePopupKeydown);
+    document.addEventListener('click', closePopupOverlay);
 } 
 
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
+    document.addEventListener('keydown', closePopupKeydown);
 } 
 
 function closePopupOverlay (event) {
@@ -38,36 +52,37 @@ function closePopupKeydown (evt) {
     }
 }
 
-document.addEventListener('keydown', closePopupKeydown);
-
 //открытие и закрытие Add
 addButton.addEventListener('click', function() {
     openPopup(popupAdd);
+    const form = document.querySelector(validationConfig.formSelector);
+    const saveButton = form.querySelector(validationConfig.submitButtonSelector);
+    setButtonState(saveButton, form.checkValidity(), validationConfig);
 });
 
 popupAddCloseButton.addEventListener('click', function() {
     closePopup(popupAdd);
 });
 
-popupAdd.addEventListener('click', closePopupOverlay);
-
 //открытие и закрытие Edit
 editButton.addEventListener('click', function() {
     openPopup(popupEdit);
+    const form = document.querySelector(validationConfig.formSelector);
+    const saveButton = form.querySelector(validationConfig.submitButtonSelector);
+    setButtonState(saveButton, form.checkValidity(), validationConfig);
 });
 
 popupEditCloseButton.addEventListener('click', function() {
     closePopup(popupEdit);
+    const form = document.querySelector(validationConfig.formSelector)
+    form.reset();
+    deleteErrorMessage(popupEdit);
 });
-
-popupEdit.addEventListener('click', closePopupOverlay);
 
 //открытие и закрытие Image
 popupImageCloseButton.addEventListener('click', function() {
     closePopup(popupImage);
 });
-
-popupImage.addEventListener('click', closePopupOverlay);
 
 // отправка Edit
 const formEditElement = document.querySelector('.popup__input-buttom_type_edit');
@@ -79,14 +94,9 @@ const changeJobInput = profile.querySelector('.profile__profession');
 
 function formEditSubmitHandler (evt) {
     evt.preventDefault(); 
-         
-    const name = nameInput.value;
-    const job = jobInput.value; 
-        
-    changeNameInput.textContent = name;
-    changeJobInput.textContent = job;
+    changeNameInput.textContent = nameInput.value;
+    changeJobInput.textContent = jobInput.value;
 }
-
 formEditElement.addEventListener('click', formEditSubmitHandler); 
 
 const buttonSaveEditPopup = popupEdit.querySelector('.popup__input-buttom_type_edit');
@@ -94,38 +104,11 @@ buttonSaveEditPopup.addEventListener('click', function() {
     closePopup(popupEdit);
 });
 
-// отправка Add
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    }
-]; 
-
+// создание карточек
 const cards = document.querySelector('.cards');
 const addForm = document.querySelector('.popup__form_type_add');
 
-function addCard(element) {
+function createCard(element) {
 const templateCard = document.querySelector ('.template').content.cloneNode(true);
 const elementImage = templateCard.querySelector('.element__image');
     templateCard.querySelector('.element__title').textContent = element.name;
@@ -133,9 +116,7 @@ const elementImage = templateCard.querySelector('.element__image');
     elementImage.alt = element.name;
     templateCard.querySelector('.element__trash').addEventListener('click', event => { 
         const cardDelete = event.target.closest('.element'); 
-         if(cardDelete) { 
-            cardDelete.remove(); 
-        } 
+        cardDelete.remove(); 
     }); 
  
     templateCard.querySelector('.element__like').addEventListener('click', event => { 
@@ -158,7 +139,7 @@ addForm.addEventListener('submit', event => {
     event.preventDefault();
     const inputPlace = document.querySelector('.popup__form-place');
     const inputLink = document.querySelector('.popup__form-image');
-    const element = addCard( {
+    const element = createCard( {
         name: inputPlace.value,
         link: inputLink.value
     });
@@ -171,15 +152,15 @@ inputButton.addEventListener('click', function() {
 });
 
 initialCards.forEach(info => {  
-    const card = addCard(info);
+    const card = createCard(info);
     cards.append(card);
-  });
-
-document.addEventListener('keydown', closePopupKeydown);
+});
 
 
 
-/*При открытии попапа редактирования пользователя поля воода всегда должны заполняться данными о пользователи со страници, сейчас этого не происходит. Если я просто закрыл попап и открыл его снова, то я вижу значения и ошибки с прошлого ввода, этого быть не должно.
-Если я добавил карточку и я открываю попап добавления карточек опять я вижу кнопку Сохранить активной при пустых полях, а она должна быть неактивной. Следует исправить.
-Попап добавления карточки всегда должен открываться в обновленном состоянии, сейчас это нет.
-Места указанные в комментариях. */
+
+/*
+Если я просто закрыл попап и открыл его снова, то я вижу значения и ошибки с прошлого ввода, этого быть не должно.
+
+
+Попап добавления карточки всегда должен открываться в обновленном состоянии, сейчас это нет.*/
