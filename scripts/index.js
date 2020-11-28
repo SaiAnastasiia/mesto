@@ -1,3 +1,4 @@
+
 //переменные Add
 const popupAdd = document.querySelector('.popup_type_add');
 const popupAddCloseButton = popupAdd.querySelector('.popup__close-image');
@@ -14,27 +15,15 @@ const popupImagePhoto = popupImage.querySelector('.popup__place-photo');
 const popupImageTitle = popupImage.querySelector('.popup__place-title');
 const popupImageCloseButton = popupImage.querySelector('.popup__close-image');
 
-function deleteErrorMessage(popup) {
-    const errors = popup.querySelectorAll(validationConfig.errorMessage);
-    Array.from(errors).forEach((error) => {
-        error.textContent = " ";
-    });
-    const inputs = popup.querySelectorAll(validationConfig.inputSelector);
-    Array.from(inputs).forEach((input) => {
-        input.classList.remove(validationConfig.inputInvalidClass);
-    });
-}
 
 //функции открытия и закрытия
+
 function openPopup(popup) {
     popup.classList.add('popup_is-opened');
-    document.addEventListener('keydown', closePopupKeydown);
-    document.addEventListener('click', closePopupOverlay);
 } 
 
 function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
-    document.addEventListener('keydown', closePopupKeydown);
 } 
 
 function closePopupOverlay (event) {
@@ -52,37 +41,46 @@ function closePopupKeydown (evt) {
     }
 }
 
+
+document.addEventListener('keydown', closePopupKeydown);
+
 //открытие и закрытие Add
 addButton.addEventListener('click', function() {
     openPopup(popupAdd);
-    const form = document.querySelector(validationConfig.formSelector);
-    const saveButton = form.querySelector(validationConfig.submitButtonSelector);
-    setButtonState(saveButton, form.checkValidity(), validationConfig);
+    
 });
+
 
 popupAddCloseButton.addEventListener('click', function() {
     closePopup(popupAdd);
 });
 
+popupAdd.addEventListener('click', closePopupOverlay);
+
+
 //открытие и закрытие Edit
 editButton.addEventListener('click', function() {
     openPopup(popupEdit);
-    const form = document.querySelector(validationConfig.formSelector);
-    const saveButton = form.querySelector(validationConfig.submitButtonSelector);
-    setButtonState(saveButton, form.checkValidity(), validationConfig);
 });
 
 popupEditCloseButton.addEventListener('click', function() {
     closePopup(popupEdit);
-    const form = document.querySelector(validationConfig.formSelector)
-    form.reset();
-    deleteErrorMessage(popupEdit);
 });
+
+popupEdit.addEventListener('click', closePopupOverlay);
+
 
 //открытие и закрытие Image
 popupImageCloseButton.addEventListener('click', function() {
     closePopup(popupImage);
 });
+
+popupImage.addEventListener('click', closePopupOverlay);
+
+
+
+
+
 
 // отправка Edit
 const formEditElement = document.querySelector('.popup__input-buttom_type_edit');
@@ -94,9 +92,14 @@ const changeJobInput = profile.querySelector('.profile__profession');
 
 function formEditSubmitHandler (evt) {
     evt.preventDefault(); 
-    changeNameInput.textContent = nameInput.value;
-    changeJobInput.textContent = jobInput.value;
+         
+    const name = nameInput.value;
+    const job = jobInput.value; 
+        
+    changeNameInput.textContent = name;
+    changeJobInput.textContent = job;
 }
+
 formEditElement.addEventListener('click', formEditSubmitHandler); 
 
 const buttonSaveEditPopup = popupEdit.querySelector('.popup__input-buttom_type_edit');
@@ -104,19 +107,25 @@ buttonSaveEditPopup.addEventListener('click', function() {
     closePopup(popupEdit);
 });
 
-// создание карточек
+// отправка Add
+
+
 const cards = document.querySelector('.cards');
 const addForm = document.querySelector('.popup__form_type_add');
 
-function createCard(element) {
+function addCard(element) {
 const templateCard = document.querySelector ('.template').content.cloneNode(true);
 const elementImage = templateCard.querySelector('.element__image');
+
     templateCard.querySelector('.element__title').textContent = element.name;
     elementImage.src = element.link;
     elementImage.alt = element.name;
     templateCard.querySelector('.element__trash').addEventListener('click', event => { 
         const cardDelete = event.target.closest('.element'); 
-        cardDelete.remove(); 
+ 
+        if(cardDelete) { 
+            cardDelete.remove(); 
+        } 
     }); 
  
     templateCard.querySelector('.element__like').addEventListener('click', event => { 
@@ -135,16 +144,21 @@ const elementImage = templateCard.querySelector('.element__image');
     return templateCard;
 }
   
+
+
 addForm.addEventListener('submit', event => {
     event.preventDefault();
+    
     const inputPlace = document.querySelector('.popup__form-place');
     const inputLink = document.querySelector('.popup__form-image');
-    const element = createCard( {
+    
+    const element = addCard( {
         name: inputPlace.value,
         link: inputLink.value
     });
     cards.prepend(element);
     addForm.reset();
+
 });
 const inputButton = document.querySelector('.popup__input-buttom_type_add');
 inputButton.addEventListener('click', function() {
@@ -152,15 +166,9 @@ inputButton.addEventListener('click', function() {
 });
 
 initialCards.forEach(info => {  
-    const card = createCard(info);
+    const card = addCard(info);
     cards.append(card);
-});
+  });
 
 
-
-
-/*
-Если я просто закрыл попап и открыл его снова, то я вижу значения и ошибки с прошлого ввода, этого быть не должно.
-
-
-Попап добавления карточки всегда должен открываться в обновленном состоянии, сейчас это нет.*/
+  document.addEventListener('keydown', closePopupKeydown);
