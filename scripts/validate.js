@@ -57,7 +57,7 @@ const validationConfig = {
     inputSelector:  '.popup__input',
     submitButtonSelector: '.popup__input-buttom',
     buttonInvalidClass:'popup__input-buttom_invalid',
-    inputInvalidClass: 'popup__input-invalid',
+    inputInvalidClass: 'popup__input-buttom_invalid',
     errorMessage: '.error',
 
 };
