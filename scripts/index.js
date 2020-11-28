@@ -2,6 +2,8 @@
 const popupAdd = document.querySelector('.popup_type_add');
 const popupAddCloseButton = popupAdd.querySelector('.popup__close-image');
 const addButton = document.querySelector('.add-button');
+const inputPlace = document.querySelector('.popup__form-place');
+const inputLink = document.querySelector('.popup__form-image');
 
 //переменные Edit
 const popupEdit = document.querySelector('.popup_type_edit');
@@ -156,9 +158,6 @@ const elementImage = templateCard.querySelector('.element__image');
 
 addForm.addEventListener('submit', event => {
     event.preventDefault();
-    
-    const inputPlace = document.querySelector('.popup__form-place');
-    const inputLink = document.querySelector('.popup__form-image');
     
     const element = addCard( {
         name: inputPlace.value,
