@@ -15,7 +15,6 @@
     outline: none;
     cursor: pointer;
     margin-top: 18px;
-    padding: 0;
 }
 
 @media screen and (max-width: 560px) {
@@ -23,7 +22,6 @@
         font-size: 14px;
         line-height: 17px;
         height: 46px;
-        margin-top: 13px;
 
     }
 }

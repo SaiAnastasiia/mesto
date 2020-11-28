@@ -11,3 +11,9 @@
     padding-bottom: 13px;
 }
 
+@media screen and (max-width: 560px) {
+    .popup__form-second-row {
+        margin-bottom: 45px;
+
+    }
+}

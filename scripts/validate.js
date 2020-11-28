@@ -19,10 +19,9 @@ function checkInputValidity(form, input, config) {
 }
 
 function setButtonState(button, isActive, config) {
-
     if (isActive) {
         button.classList.remove(config.buttonInvalidClass);
-        button.disabled = false;    
+        button.disabled = false;
     } else {
         button.classList.add(config.buttonInvalidClass);
         button.disabled = true; 
@@ -48,6 +47,7 @@ function enableValidation(config) {
 
         form.addEventListener('submit', (evt) => {
             evt.preventDefault();
+            console.log('отправка формы');
         });
 
         const submitButton = form.querySelector(config.submitButtonSelector);
@@ -61,7 +61,6 @@ const validationConfig = {
     submitButtonSelector: '.popup__input-buttom',
     buttonInvalidClass:'popup__input-buttom_invalid',
     inputInvalidClass: 'popup__input-invalid',
-    errorMessage: '.error',
 };
 
 enableValidation(validationConfig);
