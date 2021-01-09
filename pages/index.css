@@ -24,7 +24,7 @@
 @import '../blocks/element/element.css';
 @import '../blocks/element/__image-button/element__image-button.css';
 @import '../blocks/element/__image/element__image.css';
-@import '../blocks/element/__trash/element__trash.css';
+@import '../blocks/element/__delete/element__delete.css';
 @import '../blocks/element/__content/element__content.css';
 @import '../blocks/element/__title/element__title.css';
 @import '../blocks/element/__like/element__like.css';
