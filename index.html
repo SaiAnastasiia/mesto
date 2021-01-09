@@ -31,7 +31,7 @@
         <button class="popup__close-image" type="button"></button>
         <div class="popup__content popup__content_type_edit">
           <h2 class="popup__title"> Редактировать профиль</h2>
-          <form class="popup__form">
+          <form class="popup__form" id="popup-form-edit">
             <input 
             type="text" 
             autocomplete="off"
@@ -64,7 +64,7 @@
         <button class="popup__close-image" type="button"></button>
         <div class="popup__content popup__content_type_add">
           <h2 class="popup__title">Новое место</h2>
-          <form class=" popup__form popup__form_type_add">
+          <form class=" popup__form popup__form_type_add" id="popup-form-add">
             <input type="text" 
             class="popup__input popup__form-first-row popup__form-place" 
             value="" 
@@ -100,9 +100,9 @@
       <p class="footer__place">&copy; 2020 Mesto Russia</p>
     </footer>
   </div>
-  <template class="template">
+  <template class="template" id="template">
     <div class="element">
-      <button class="element__trash" type="button" src="#" alt="Корзина"></button>
+      <button class="element__delete" type="button" src="#" alt="Корзина"></button>
       <button class="element__image-button" type="button"><img class="element__image" src="#" alt="Фотография пользователя"></button>
       <div class="element__content">
         <h2 class="element__title"></h2>
@@ -111,7 +111,6 @@
     </div>
   </template>
   <script src="./scripts/initial-сards.js"></script> 
-  <script src="./scripts/index.js"></script>
-<script src="./scripts/validate.js"></script> 
+  <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>
