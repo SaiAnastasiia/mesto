@@ -32,12 +32,11 @@ export class Card {
         this._content
             .querySelector('.element__like')
             .addEventListener('click', () => this._likeCard());
-        cards.append(this._content);
+        cards.prepend(this._content);
     }
 
     _openPopupImage() {
         const popupImage = document.querySelector('.popup_type_image');
-        popupImage.classList.add('popup_is-opened');
         const popupImagePhoto = popupImage.querySelector('.popup__place-photo');
         const popupImageTitle = popupImage.querySelector('.popup__place-title');
             popupImagePhoto.src = this._link; 

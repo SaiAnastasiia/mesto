@@ -132,7 +132,6 @@ addForm.addEventListener('submit', event => {
         name: inputPlace.value,
         link: inputLink.value
     });
-    cards.append(element);
     addForm.reset();
 }); 
 
@@ -175,13 +174,13 @@ const cardTemplateSelector = '#template';
 const addElement = element => {
     const card = new Card(element, cardTemplateSelector);
     card.render(cards);
+    document.querySelector('.element__image').addEventListener('click', function() {
+        openPopup(popupImage);
+    });
+    popupImageCloseButton.addEventListener('click', function() {
+        closePopup(popupImage);
+    });
 };
 
 initialCards.forEach(addElement);
 
-document.querySelector('.element__image').addEventListener('click', function() {
-    openPopup(popupImage);
-});
-popupImageCloseButton.addEventListener('click', function() {
-    closePopup(popupImage);
-});
