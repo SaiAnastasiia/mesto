@@ -183,4 +183,3 @@ const addElement = element => {
 };
 
 initialCards.forEach(addElement);
-
