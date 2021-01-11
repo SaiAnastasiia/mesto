@@ -7,14 +7,14 @@ export class Card {
         this._template = document.querySelector(templateSelector).content;
     }
 
-    _deleteCard(event) {
+    _deleteCard() {
         const cardDelete = event.target.closest('.element');
         if (cardDelete) {
             cardDelete.remove();
         }
     }
 
-    _likeCard(event) {
+    _likeCard() {
         const elementLike = event.target;
         if (elementLike) {
             elementLike.classList.toggle('element__like_type_active');
