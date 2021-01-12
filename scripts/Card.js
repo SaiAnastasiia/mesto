@@ -24,8 +24,9 @@ export class Card {
     render(cards) {
         this._content = this._template.cloneNode(true);
         this._content.querySelector('.element__title').textContent = this._text;
-        this._content.querySelector('.element__image').src = this._link;
-        this._content.querySelector('.element__image').addEventListener('click', () => this._openPopupImage());
+        const image = this._content.querySelector('.element__image');
+        image.src = this._link;
+        image.addEventListener('click', () => this._openPopupImage());
         this._content
             .querySelector('.element__delete')
             .addEventListener('click', () => this._deleteCard());
@@ -44,3 +45,10 @@ export class Card {
             popupImagePhoto.alt = this._text;          
     }   
 }
+
+
+
+
+
+
+

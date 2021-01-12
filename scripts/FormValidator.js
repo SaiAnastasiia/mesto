@@ -10,13 +10,6 @@ export class FormValidator {
         this._element = document.querySelector(popupSelector);
     }
     
-    _inputInvalid() {
-        const inputs = this._inputSelector;
-        Array.from(inputs).forEach((input) => {
-            input.classList.remove('popup__input-invalid');
-        });
-    }
-
     _showError(input) {
         const error = this._element.querySelector(`#${input.id}-error`);
         error.textContent = input.validationMessage;
@@ -66,11 +59,22 @@ export class FormValidator {
         });     
     }
 
+    removeErrorMessage() {
+        const errors = this._element.querySelectorAll(this._errorMessage);
+        Array.from(errors).forEach((error) => {
+            error.textContent = " ";
+        });
+        const inputs = this._element.querySelectorAll(this._errorMessage);
+        Array.from(inputs).forEach((input) => {
+            input.classList.remove(this._inputInvalidClass);
+        });
+      }
+
     enableValidation() {
-        this._setEventListeners();        
+        this._setEventListeners();
         this._element.addEventListener('submit', (evt) => {
-        evt.preventDefault();
-        this._setButtonState();        
-      });      
+            evt.preventDefault();
+            this._setButtonState();
+        });
     }
 }
