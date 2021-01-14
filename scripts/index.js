@@ -1,9 +1,13 @@
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
+
 //переменные Add
 const popupAdd = document.querySelector('.popup_type_add');
 const popupAddCloseButton = popupAdd.querySelector('.popup__close-image');
 const addButton = document.querySelector('.add-button');
 const inputPlace = document.querySelector('.popup__form-place');
 const inputLink = document.querySelector('.popup__form-image');
+const formInput = popupAdd.querySelector('.popup__form');
 
 //переменные Edit
 const popupEdit = document.querySelector('.popup_type_edit');
@@ -21,14 +25,14 @@ const changeJobInput = profile.querySelector('.profile__profession');
 const popupImage = document.querySelector('.popup_type_image');
 const popupImageCloseButton = popupImage.querySelector('.popup__close-image');
 
-import { Card } from './Card.js';
-import { FormValidator } from './FormValidator.js';
+const popupSelectorAdd = '#popup-form-add';
+const popupSelectorEdit = '#popup-form-edit';
 
 //функции открытия и закрытия
-function openPopup(popup) {
+export function openPopup(popup) {
     popup.classList.add('popup_is-opened');
     document.addEventListener('keydown', closePopupKeydown);
-    document.addEventListener('click', closePopupOverlay);
+    document.addEventListener('click', closePopupOverlay);    
 } 
 
 function closePopup(popup) {
@@ -46,9 +50,8 @@ function closePopupOverlay (event) {
 }
 
 function closePopupKeydown (evt) {
-    const popupOpened = document.querySelector('.popup_is-opened');
-
-    if (evt.key === 'Escape') {
+     if (evt.key === 'Escape') {
+        const popupOpened = document.querySelector('.popup_is-opened');
         closePopup(popupOpened);
     }
 }
@@ -57,19 +60,17 @@ const validationConfig = {
     formSelector: '.popup__form',
     inputSelector:  '.popup__input',
     submitButtonSelector: '.popup__input-buttom',
-    buttonInvalidClass:'popup__input-buttom_invalid',
+    buttonInvalidClass: 'popup__input-buttom_invalid',
     inputInvalidClass: 'popup__input-invalid',
     errorMessage: '.error',
 };
 
-const popupSelectorAdd = '#popup-form-add';
-const popupSelectorEdit = '#popup-form-edit';
+const addFormValidation = new FormValidator(validationConfig, popupSelectorAdd);
+addFormValidation.enableValidation();
 
-addButton.addEventListener('click', function() {
+addButton.addEventListener('click', function() {    
     openPopup(popupAdd);
-    const addFormValidation = new FormValidator(validationConfig, popupSelectorAdd);
-    addFormValidation.enableValidation();
-    const formInput = popupAdd.querySelector('.popup__form');
+    addFormValidation.removeErrorMessage(popupAdd);
     formInput.reset();
 });
 
@@ -77,24 +78,18 @@ popupAddCloseButton.addEventListener('click', function() {
     closePopup(popupAdd);
 });
 
+const editFormValidation = new FormValidator(validationConfig, popupSelectorEdit);
+editFormValidation.enableValidation();
+
 //открытие и закрытие Edit
 editButton.addEventListener('click', function() {
     openPopup(popupEdit);
-    const editFormValidation = new FormValidator(validationConfig, popupSelectorEdit);
-    editFormValidation.enableValidation();
-    const formInput = popupEdit.querySelector('.popup__form');
-    formInput.reset();
     nameInput.value = changeNameInput.textContent;
     jobInput.value = changeJobInput.textContent;
 });
 
 popupEditCloseButton.addEventListener('click', function() {
     closePopup(popupEdit);
-});
-
-//открытие и закрытие Image
-    popupImageCloseButton.addEventListener('click', function() {
-    closePopup(popupImage);
 });
 
 // отправка Edit
@@ -125,7 +120,6 @@ addForm.addEventListener('submit', event => {
         name: inputPlace.value,
         link: inputLink.value
     });
-    cards.append(element);
     addForm.reset();
 }); 
 
@@ -163,14 +157,15 @@ const initialCards = [
 
 const cards = document.querySelector('.cards');
 
-const CARD_TEMPLATE_SELECTOR = '#template';
+const cardTemplateSelector = '#template';
 
 const addElement = element => {
-    const card = new Card(element, CARD_TEMPLATE_SELECTOR);
+    const card = new Card(element, cardTemplateSelector);
     card.render(cards);
 };
 
 initialCards.forEach(addElement);
 
-
-
+popupImageCloseButton.addEventListener('click', function() {
+    closePopup(popupImage);
+});
