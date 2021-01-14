@@ -1,3 +1,4 @@
+import { openPopup } from './index.js';
 export class Card {
     constructor(element, templateSelector) {
         this._link = element.link;
@@ -7,14 +8,14 @@ export class Card {
         this._template = document.querySelector(templateSelector).content;
     }
 
-    _deleteCard() {
+    _deleteCard(event) {
         const cardDelete = event.target.closest('.element');
         if (cardDelete) {
             cardDelete.remove();
         }
     }
 
-    _likeCard() {
+    _likeCard(event) {
         const elementLike = event.target;
         if (elementLike) {
             elementLike.classList.toggle('element__like_type_active');
@@ -29,10 +30,10 @@ export class Card {
         image.addEventListener('click', () => this._openPopupImage());
         this._content
             .querySelector('.element__delete')
-            .addEventListener('click', () => this._deleteCard());
+            .addEventListener('click', (evt) => this._deleteCard(evt));
         this._content
             .querySelector('.element__like')
-            .addEventListener('click', () => this._likeCard());
+            .addEventListener('click', (evt) => this._likeCard(evt));
         cards.prepend(this._content);
     }
 
@@ -42,7 +43,9 @@ export class Card {
         const popupImageTitle = popupImage.querySelector('.popup__place-title');
             popupImagePhoto.src = this._link; 
             popupImageTitle.textContent = this._text; 
-            popupImagePhoto.alt = this._text;          
+            popupImagePhoto.alt = this._text;   
+            openPopup(popupImage);  
+
     }   
 }
 

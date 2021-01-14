@@ -1,13 +1,14 @@
 export class FormValidator {
     constructor(config, popupSelector) {
         this._formSelector = config.formSelector;
-        console.log(popupSelector);
         this._inputSelector = config.inputSelector;
         this._submitButtonSelector = config.submitButtonSelector;
         this._buttonInvalidClass = config.buttonInvalidClass;
         this._inputInvalidClass = config.inputInvalidClass;
         this._errorMessage = config.errorMessage;
         this._element = document.querySelector(popupSelector);
+        this._inputList = this._element.querySelectorAll(this._inputSelector);
+        
     }
     
     _showError(input) {
@@ -60,12 +61,12 @@ export class FormValidator {
     }
 
     removeErrorMessage() {
-        const errors = this._element.querySelectorAll(this._errorMessage);
-        Array.from(errors).forEach((error) => {
+        this._inputList.forEach((input) => this._hideError(input));
+        Array.from(this._inputList).forEach((error) => {
             error.textContent = " ";
         });
-        const inputs = this._element.querySelectorAll(this._errorMessage);
-        Array.from(inputs).forEach((input) => {
+        /* const inputs = this._element.querySelectorAll(this._errorMessage); */
+        Array.from(this._inputList).forEach((input) => {
             input.classList.remove(this._inputInvalidClass);
         });
       }
