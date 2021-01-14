@@ -7,8 +7,7 @@ export class FormValidator {
         this._inputInvalidClass = config.inputInvalidClass;
         this._errorMessage = config.errorMessage;
         this._element = document.querySelector(popupSelector);
-        this._inputList = this._element.querySelectorAll(this._inputSelector);
-        
+        this._inputList = Array.from(this._element.querySelectorAll(this._inputSelector)); 
     }
     
     _showError(input) {
@@ -34,7 +33,7 @@ export class FormValidator {
     }
 
     _getInvalidInput() {
-        return this._inputSelector.some((input) => {
+        return this._inputList.some((input) => {
             return !input.validity.valid;
         });
     }
@@ -50,26 +49,19 @@ export class FormValidator {
     }
     
     _setEventListeners() {
-        this._inputSelector = Array.from(this._element.querySelectorAll(this._inputSelector));
+        
         this._button = this._element.querySelector(this._submitButtonSelector);
-        this._inputSelector.forEach(input => {
+        this._inputList.forEach(input => {
             input.addEventListener('input', () => {
                 this._checkInputValidity(input);
-                this._setButtonState();
+                this._setButtonState(this._inputList);
             });            
         });     
     }
 
     removeErrorMessage() {
         this._inputList.forEach((input) => this._hideError(input));
-        Array.from(this._inputList).forEach((error) => {
-            error.textContent = " ";
-        });
-        /* const inputs = this._element.querySelectorAll(this._errorMessage); */
-        Array.from(this._inputList).forEach((input) => {
-            input.classList.remove(this._inputInvalidClass);
-        });
-      }
+    }
 
     enableValidation() {
         this._setEventListeners();
